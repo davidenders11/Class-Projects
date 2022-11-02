@@ -1,0 +1,25 @@
+CXXFLAGS = -std=c++17 -g -O2 -Wall -Wextra -pedantic
+CXX = clang++
+LIB = -ltestinglogger
+
+TARGETS = treestringset-test minispell
+
+all: $(TARGETS)
+
+minispell: minispell.o treestringset.o
+	$(CXX) -o minispell minispell.o treestringset.o $(LIB)
+
+treestringset-test: treestringset-test.o treestringset.o
+	$(CXX) -o treestringset-test treestringset-test.o treestringset.o $(LIB)
+
+treestringset-test.o: treestringset-test.cpp treestringset.hpp
+	$(CXX) $(CXXFLAGS) -c treestringset-test.cpp
+
+treestringset.o: treestringset.cpp treestringset.hpp
+	$(CXX) $(CXXFLAGS) -c treestringset.cpp
+
+minispell.o: minispell.cpp
+	$(CXX) $(CXXFLAGS) -c minispell.cpp
+
+clean:
+	rm -rf *.o $(TARGETS)
