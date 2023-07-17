@@ -1,5 +1,5 @@
 # Class-Projects
-Class projects to display for Manu
+Class projects to display
 
 Bloom Filter class implemented in C++. Bloom Filter allows us to store large amounts of data in a very efficient amount of space, and check whether a key is in the set of data. Bloom filter will definitely report that the data is there if it is, but might incorrectly report that data NOT in the set is also there. This is useful in certain applications.
 
